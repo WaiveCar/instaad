@@ -3,25 +3,30 @@
 <head>
   <title> Instagram Ad </title>
 <style>
-  div {
-     padding: 1px;
+  #main_container {
+  }
+  span {
      display: inline-block;
   }
   #profile{
+    position: relative
     }
-  #user-name {
+  #user_name {
     position: absolute;
+    top: -18px;
   }
   #profile_pic {
-
+    height: 300px;
+    width : 300px;
   }
   #pics {
   }
   .pic {
+    float: center;
+    padding: 5px;
     display: inline;
-    width: 400px;
-    height: 400px
-    padding: 10px;
+    width: 600px;
+    height: 400px;
   }
 </style>
 </head>
@@ -29,7 +34,7 @@
 <container id = "main_container">
   <span id = "profile">
     <span id = "user_name"></span>
-    <span id = "profile_pic"></span>
+    <img id = "profile_pic"></img>
   </span>
   <span id = "pics"></span>
 </container>
@@ -44,9 +49,11 @@
       ]
     };
     document.getElementById("user_name").innerHTML = "@" + instaProfile.user_name;
-    profile_pic_node = document.createElement("img")
+    /*profile_pic_node = document.createElement("img")
     profile_pic_node.src = instaProfile.profile_pic
-    document.getElementById("profile_pic").appendChild(profile_pic_node)
+    document.getElementById("profile_pic").appendChild(profile_pic_node)*/
+    profile_pic_node = document.getElementById("profile_pic")
+    profile_pic_node.src = instaProfile.profile_pic
     console.log(instaProfile.pics.length)
     for (i = 0; i < instaProfile.pics.length; i++) {
       pic_node = document.createElement("img")

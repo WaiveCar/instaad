@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title> Instagram Ad </title>
+<style>
+  div {
+     padding: 1px;
+     display: inline-block;
+  }
+  #profile{
+    }
+  #user-name {
+    position: absolute;
+  }
+  #profile_pic {
+
+  }
+  #pics {
+  }
+  .pic {
+    display: inline;
+    width: 400px;
+    height: 400px
+    padding: 10px;
+  }
+</style>
+</head>
+<body>
+<container id = "main_container">
+  <span id = "profile">
+    <span id = "user_name"></span>
+    <span id = "profile_pic"></span>
+  </span>
+  <span id = "pics"></span>
+</container>
+<script>
+  var instaProfile  = {
+      display_name : "Alekx",
+      user_name: "alekx5583",
+      profile_pic: "https://scontent.cdninstagram.com/vp/30539af47cc6c74b3dba4ed534e17062/5DE7A22E/t51.2885-19/s150x150/66718595_870347933332629_7905939802908786688_n.jpg?_nc_ht=scontent.cdninstagram.com",
+      pics: [
+        "https://scontent.cdninstagram.com/vp/63ac79c74f644f062a9e7f56ddcc16cc/5DD12679/t51.2885-15/sh0.08/e35/s640x640/67578752_349693785962003_4253384163365456291_n.jpg?_nc_ht=scontent.cdninstagram.com",
+        "https://scontent-lax3-2.cdninstagram.com/vp/09bd33eaa2d539658cba23e09411f1fd/5DE01C58/t51.2885-15/e35/s1080x1080/46204479_522168848295712_8844560794998887349_n.jpg?_nc_ht=scontent-lax3-2.cdninstagram.com"
+      ]
+    };
+    document.getElementById("user_name").innerHTML = "@" + instaProfile.user_name;
+    profile_pic_node = document.createElement("img")
+    profile_pic_node.src = instaProfile.profile_pic
+    document.getElementById("profile_pic").appendChild(profile_pic_node)
+    console.log(instaProfile.pics.length)
+    for (i = 0; i < instaProfile.pics.length; i++) {
+      pic_node = document.createElement("img")
+      pic_node.src = instaProfile.pics[i]
+      pic_node.setAttribute("class", "pic");
+      document.getElementById("pics").appendChild(pic_node)
+    }
+
+</script>
+</body>
+</html>

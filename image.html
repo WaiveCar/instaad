@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title> Instagram Ad </title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    .container {
+    }
+    #main_container{
+      border-style: dashed;
+      padding-top: 4%;
+      width: 100%;
+    }
+    span {
+      display: inline-block;
+    }
+    #profile{
+      height: 100%;
+      width: 33%;
+      border-color: yellow;
+      font-family: 'Lato', sans-serif;
+      font-size: xx-large;
+      }
+    .text {
+      width:100%;
+      text-align: center;
+    }
+    #user_name {
+    }
+    #profile_pic_container {
+      width: 100%;
+    }
+    #profile_pic {
+      margin-left: 20%;
+      height: auto;
+      border-radius: 50%;
+      width: 60%;
+
+    }
+    #pics {
+      width:65%;
+      height:120%;
+    }
+    .pic {
+      width:40%;
+      padding-left: 20px;
+      padding-right: 20px;
+
+    }
+  </style>
+</head>
+<body>
+<span id = "main_container" class = "container">
+  <span class = "container" id = "profile">
+    <div class = "container text" style = "font-size: x-large;padding-bottom:7px;"> Find <span id = "display_name"> </span> on Instagram!</div>
+    <span class = "container text" id = "user_name"></span>
+    <span class = "container" id = "profile_pic_container">
+      <img class = "container" id = "profile_pic"></img>
+    </span>
+  </span>
+  <span class = "container" id = "pics"></span>
+</span>
+<script>
+  const aspect_ratio = 2.844
+  //Setting static content to their locations
+  var instaProfile  = {
+      //In development these variables are constant but should be static in prodution
+      display_name : "Alekx",
+      user_name: "alekx5583",
+      profile_pic: "https://scontent.cdninstagram.com/vp/30539af47cc6c74b3dba4ed534e17062/5DE7A22E/t51.2885-19/s150x150/66718595_870347933332629_7905939802908786688_n.jpg?_nc_ht=scontent.cdninstagram.com",
+      most_recent_post : "https://scontent.cdninstagram.com/vp/850f02339554313f04590092ca8b97c4/5DCC544C/t51.2885-15/sh0.08/e35/s640x640/66410693_496330721139441_6002978702434464847_n.jpg?_nc_ht=scontent.cdninstagram.com",
+      second_post : "https://scontent.cdninstagram.com/vp/63ac79c74f644f062a9e7f56ddcc16cc/5DD12679/t51.2885-15/sh0.08/e35/s640x640/67578752_349693785962003_4253384163365456291_n.jpg?_nc_ht=scontent.cdninstagram.com",
+    };
+    document.getElementById("user_name").innerHTML = "@" + instaProfile.user_name;
+    profile_pic_node = document.getElementById("profile_pic")
+    profile_pic_node.src = instaProfile.profile_pic
+    pic_node_recent = document.createElement("img")
+    pic_node_recent.src = instaProfile.most_recent_post
+    pic_node_recent.setAttribute("class", "pic");
+    document.getElementById("pics").appendChild(pic_node_recent)
+    pic_node_second = document.createElement("img")
+    pic_node_second.src = instaProfile.second_post
+    pic_node_second.setAttribute("class", "pic");
+    document.getElementById("pics").appendChild(pic_node_second)
+    display_name_node = document.getElementById("display_name")
+    display_name_node.innerHTML = instaProfile.display_name
+    console.log(display_name_node.text)
+
+    //Setting up the page to correspond to the ratio of the screen
+    main_container = document.getElementById("main_container")
+    console.log(main_container)
+    console.log("Width of node: " + main_container.style.width)
+    var documentElement_width = main_container.style.width;
+    var documentElement_height = documentElement_width/aspect_ratio;
+    console.log("window_width: " + documentElement_width);
+    console.log("window_height: " + documentElement_height);
+</script>
+</body>
+</html>

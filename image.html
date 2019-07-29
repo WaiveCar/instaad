@@ -8,7 +8,7 @@
     }
     #main_container{
       border-style: dashed;
-      padding-top: 4%;
+      padding-top: 1%;
       width: 100%;
       height: 100%;
       background-color: #cef5d8;
@@ -61,18 +61,15 @@
       width:100%;
       text-align: center;
     }
-    #user_name {
-    }
     #profile_pic_container {
       width: 100%;
       height: 100%;
       text-align: center;
-
     }
     #profile_pic {
       height: auto;
       border-radius: 50%;
-      width: 60%;
+      width: 70%;
 
     }
     #pics {
@@ -81,7 +78,6 @@
     .pic {
       width:40%;
       padding-left: 5%;
-
     }
   </style>
 </head>
@@ -120,6 +116,8 @@
     pic_node_second.setAttribute("class", "pic");
     document.getElementById("pics").appendChild(pic_node_second)
     display_name_node = document.getElementById("display_name")
+
+    //If display_name has foreign letters
     if (instaProfile.display_name == null || instaProfile.display_name == "") {
       display_name_node.innerHTML = "us"
     } else {display_name_node.innerHTML = instaProfile.display_name}

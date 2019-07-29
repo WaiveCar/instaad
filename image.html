@@ -10,7 +10,8 @@
       border-style: dashed;
       padding-top: 4%;
       width: 100%;
-      height: 100%
+      height: 100%;
+      background-color: #cef5d8;
     }
     span {
       display: inline-block;
@@ -65,9 +66,10 @@
     #profile_pic_container {
       width: 100%;
       height: 100%;
+      text-align: center;
+
     }
     #profile_pic {
-      margin-left: 20%;
       height: auto;
       border-radius: 50%;
       width: 60%;
@@ -75,7 +77,6 @@
     }
     #pics {
       width:65%;
-      height:120%;
     }
     .pic {
       width:40%;
@@ -119,38 +120,10 @@
     pic_node_second.setAttribute("class", "pic");
     document.getElementById("pics").appendChild(pic_node_second)
     display_name_node = document.getElementById("display_name")
-    display_name_node.innerHTML = instaProfile.display_name
+    if (instaProfile.display_name == null || instaProfile.display_name == "") {
+      display_name_node.innerHTML = "us"
+    } else {display_name_node.innerHTML = instaProfile.display_name}
 
-    /*
-    //--------------------------------------------------------------
-    //This section is only here for testing purposes
-    var instaProfile2  = {
-        //In development these variables are constant but should be static in prodution
-        display_name : "Ken cn Ryna",
-        user_name: "808sandken",
-        profile_pic: "https://scontent.cdninstagram.com/vp/f157b670274ea94be6592f95628502f3/5DDC5019/t51.2885-19/s150x150/44196264_302487953908344_574353662822842368_n.jpg?_nc_ht=scontent.cdninstagram.com",
-        most_recent_post : "https://scontent.cdninstagram.com/vp/c8eb6df700095a6cf604f2c4519f20c8/5D4186CA/t51.2885-15/sh0.08/e35/p640x640/64515026_544751729390912_3678708199147013407_n.jpg?_nc_ht=scontent.cdninstagram.com",
-        second_post : "https://scontent.cdninstagram.com/vp/251aa5b8422350ad29f35689c3ed31e0/5DCF3B33/t51.2885-15/sh0.08/e35/p640x640/61127493_2224669674288010_8560300625526544922_n.jpg?_nc_ht=scontent.cdninstagram.com",
-    };
-    document.getElementById("user_name").innerHTML = "@" + instaProfile2.user_name;
-    profile_pic_node = document.getElementById("profile_pic")
-    profile_pic_node.src = instaProfile2.profile_pic
-    pic_node_recent = document.createElement("img")
-    pic_node_recent.src = instaProfile2.most_recent_post
-    pic_node_recent.setAttribute("class", "pic");
-    document.getElementById("pics").appendChild(pic_node_recent)
-    pic_node_second = document.createElement("img")
-    pic_node_second.src = instaProfile2.second_post
-    pic_node_second.setAttribute("class", "pic");
-    document.getElementById("pics").appendChild(pic_node_second)
-    display_name_node = document.getElementById("display_name")
-    display_name_node.innerHTML = instaProfile2.display_name
-    //--------------------------------------------------------------
-    */
-
-    //Setting up the page to correspond to the ratio of the screen
-    var window_width = window.innerWidth
-    console.log("width: "+window.innerWidth)
   </script>
 </body>
 </html>

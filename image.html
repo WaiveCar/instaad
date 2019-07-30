@@ -1,11 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title> Instagram Ad </title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
-    .container {
-    }
     #main_container{
       border-style: dashed;
       padding-top: 1%;
@@ -16,44 +13,53 @@
     span {
       display: inline-block;
     }
-    @media screen {
+    @media screen and (max-width: 460px) {
       #profile{
         font-size: xx-small;
+        width: 41%;
       }
-    }
-    @media screen and (min-width: 360px) {
-      #profile{
-        font-size: x-small;
+      #pics {
+        width: 56%;
       }
     }
     @media screen and (min-width: 460px) {
       #profile{
-        font-size: small;
+        font-size: x-small;
+        width: 36%;
+      }
+      #pics {
+        width: 61%;
       }
     }
     @media screen and (min-width: 560px) {
       #profile{
-        font-size: medium;
+        font-size: small;
       }
     }
     @media screen and (min-width: 630px) {
       #profile{
-        font-size: large;
+        font-size: medium;
+        width: 33%;
       }
+      #pics {
+        width : 65%;
+      }
+    }
+    @media screena and (max-width:768) {
+
     }
     @media screen and (min-width: 850px) {
       #profile{
-        font-size: x-large;
+        font-size: large;
       }
     }
     @media screen and (min-width: 1120px) {
       #profile{
-        font-size: xx-large;
+        font-size: x-large;
       }
     }
     #profile{
       height: 100%;
-      width: 33%;
       border-color: yellow;
       font-family: 'Lato', sans-serif;
       }
@@ -69,11 +75,11 @@
     #profile_pic {
       height: auto;
       border-radius: 50%;
-      width: 70%;
+      /* set this either to 80 or 70 */
+      width: 80%;
 
     }
     #pics {
-      width:65%;
     }
     .pic {
       width: 40%;
@@ -84,11 +90,11 @@
 </head>
 <body>
   <span id = "main_container" class = "container">
-    <span class = "container" id = "profile">
-      <div class = "container text" style = "padding-bottom:7px;"> Find <span id = "display_name"> </span> on Instagram!</div>
-      <span class = "container text" id = "user_name"></span>
-      <span class = "container" id = "profile_pic_container">
-        <img class = "container" id = "profile_pic"></img>
+    <span id = "profile">
+      <div class = "text" style = "padding-bottom:1px;"> Find <span id = "display_name"> </span> on Instagram!</div>
+      <span class = "text" id = "user_name"></span>
+      <span id = "profile_pic_container">
+        <img id = "profile_pic"></img>
       </span>
     </span>
     <span class = "container" id = "pics"></span>
@@ -118,7 +124,6 @@
     pic_node_second.setAttribute("class", "pic");
     document.getElementById("pics").appendChild(pic_node_second)
     display_name_node = document.getElementById("display_name")
-
     //If display_name has foreign letters
     if (instaProfile.display_name == null || instaProfile.display_name == "") {
       display_name_node.innerHTML = "us"

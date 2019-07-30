@@ -76,8 +76,10 @@
       width:65%;
     }
     .pic {
+      object-fit: contain;
       width:40%;
       padding-left: 5%;
+      padding-bottom: 3%;
     }
   </style>
 </head>
@@ -95,6 +97,7 @@
   <script>
     const aspect_ratio = 2.844
     //Setting static content to their locations
+
     var instaProfile  = {
         //In development these variables are constant but should be static in prodution
         display_name : "Alekx",
@@ -116,6 +119,11 @@
     pic_node_second.setAttribute("class", "pic");
     document.getElementById("pics").appendChild(pic_node_second)
     display_name_node = document.getElementById("display_name")
+
+
+    //--------------------------------------------------------------
+    //This section is only here for testing purposes
+
 
     //If display_name has foreign letters
     if (instaProfile.display_name == null || instaProfile.display_name == "") {

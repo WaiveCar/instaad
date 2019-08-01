@@ -1,0 +1,33 @@
+<div>
+<style>
+  body, * {
+    font-family: 'Roboto', 'Helvetica', 'sans-serif';
+  }}
+  .header {{
+    width: 100%;
+  }}
+  .header img {{
+    width: 100%;
+    height: auto;
+  }}
+  .main {{
+    padding: 20px;
+  }}
+</style>
+<div class="main">
+We bring you great News!
+<p>
+ Your campaigns first 24 hours were a success!
+  <ul>
+   <li> Your campaign was seen in these hot spots {{heatmap}} </li>
+    <?= $heatmap>
+   <li> It has been seen for {{time}} </li>
+   <li> These neighborhoods have gotten a good look at it </li>
+   <li> {{areas}} </li>
+  </ul>
+</p>
+  <p>
+    Thanks,<br>
+    Waive
+  </p>
+</div>

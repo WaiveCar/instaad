@@ -1,23 +1,32 @@
 import sys
 import requests
-from jinja2 import Template
+from gmplot import gmplot #pip install gmplot
+
 
 campaign_id = sys.argv[1]
 campaign_post = requests.get("http://www.waivescreen.com/api/campaign",params={'id':campaign_id})
 text = campaign_post.json();
-lat = text[0]["lat"]
-lng = text[0]["lng"]
-print(type(text))
-print(type(text[0]))
-print(type(text[0]['lat']))
-print(lat)
-print(lng)
+if (len(text) == 0):
+    print("Campaign does not exist")
+    quit()
 
-rendered = Template(open('heatmap.html').read()).render(lat=lat,lng=lng);
+lat = []
+lng = []
+for x in text:
+    lat.append(x['lat'])
+    lng.append(x['lng'])
 
-text_file = open("email/first_day/"+campaign_id+".html", "w")
-text_file.write(rendered)
-text_file.close()
+lat.append(34.0)
+lng.append(-118.390432)
+lat.append(34.000020)
+lng.append(-118.390452)
+lat.append(34.000040)
+lng.append(-118.390472)
 
-iframe = "<iframe src ='email/first_day/'"+campaign_id+"'.html' width ='100%'> </iframe>"
-print(iframe)
+
+#LA longitude & longitude
+gmap = gmplot.GoogleMapPlotter(34.0492, -118.2437, 12)
+
+gmap.heatmap(lat,lng)
+# Draw
+gmap.draw("my_map.html")

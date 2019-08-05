@@ -37,16 +37,13 @@ for($ix = count($images); $ix < 6; $ix ++) {
 }
 
 $dur = $_GET['duration'] ?: 16;
-
-if(!empty($_GET['loop'])) {
-  echo "<meta http-equiv=refresh content=" . (floatval($dur) - 1.4) . ">";
-}
+$loop = $_GET['loop'] ? 'infinite' : '';
 
 ?>
 <link href="https://fonts.googleapis.com/css?family=Roboto:300,400&display=swap" rel=stylesheet>
 <style>
 * {
-  animation-duration: <?= $dur ?>s;
+  animation: <?= $dur ?>s <?= $loop ?>;
   animation-fill-mode: forwards;
 }
 body.dark { 
@@ -134,31 +131,31 @@ img.fill {
   animation-name: slideup;
 }
 @keyframes zoomout {
+  0% { margin-top: -35vw;}
+  5% { margin-top: 0 }
   90% { width: 100%; opacity: 1 }
-  to { width: 0; opacity: 0 }
+  97%,100% { width: 0; opacity: 0 }
 }
 @keyframes brandslide {
   90% { transform: translateY(0); opacity: 1 }
-  to { transform: translateY(12vw); opacity: 0 }
+  97%,100% { transform: translateY(12vw); opacity: 0 }
 }
 @keyframes logo {
-  from { margin-left: 33%; opacity: 0 }
+  0% { margin-left: 33%; opacity: 0 }
   5% { opacity: 1 }
   10% { margin-left: 0 }
   77% { margin-left: 0 }
-  90% { margin-left: 33% }
-  to { margin-left: 33% }
+  90%,100% { margin-left: 33% }
 }
 @keyframes slideup {
-  from { transform: translateY(35.1vw); opacity: 0 }
+  0% { transform: translateY(35.1vw); opacity: 0 }
   10% { transform: translateY(0); opacity: 1 }
   23% { transform: translateY(0) }
   36% { transform: translateY(-35.3vw) }
   50% { transform: translateY(-35.3vw) }
   63% { transform: translateY(calc(-35.3vw * 2)) }
   77% { transform: translateY(calc(-35.3vw * 2)); opacity: 1 }
-  90% { transform: translateY(calc(-35.3vw * 3)); opacity: 0 }
-  to { transform: translateY(calc(-35.3vw * 3)); opacity: 0 }
+  90%,100% { transform: translateY(calc(-35.3vw * 3)); opacity: 0 }
 }
 @keyframes slidedown {
   from { transform: translateY(-35.1vw); opacity: 0 }
@@ -168,8 +165,7 @@ img.fill {
   50% { transform: translateY(35.3vw) }
   63% { transform: translateY(calc(35.3vw * 2)) }
   77% { transform: translateY(calc(35.3vw * 2)); opacity: 1 }
-  90% { transform: translateY(calc(35.3vw * 3)); opacity: 0 }
-  to { transform: translateY(calc(35.3vw * 3)); opacity: 0 }
+  90%,100% { transform: translateY(calc(35.3vw * 3)); opacity: 0 }
 }
 </style>
 </head>

@@ -40,7 +40,7 @@ $dur = $_GET['duration'] ?: 16;
 $loop = $_GET['loop'] ? 'infinite' : '';
 
 ?>
-<link href="https://fonts.googleapis.com/css?family=Roboto:300,400&display=swap" rel=stylesheet>
+<link href=https://fonts.googleapis.com/css?family=Roboto:300,400&display=swap rel=stylesheet>
 <style>
 * {
   animation: <?= $dur ?>s <?= $loop ?>;
@@ -64,12 +64,12 @@ h3 {
   font-weight: 300;
   text-transform: lowercase;
 }
-#container {
+#wrap {
   height: 35.1vw;
   position: relative;
   overflow: hidden;
 }
-#container > div {
+#wrap > div {
   width: calc(100%/3);
   text-align: center;
 }
@@ -105,7 +105,7 @@ img.fill {
   transition-timing-function: ease;
   animation-name: logo;
 }
-#logo-container {
+#logo-wrap {
   display: inline-flex;
   justify-content: space-around;
   align-items: center;
@@ -162,10 +162,10 @@ img.fill {
 }
 </style>
 <body class=dark>
-  <div id=container>
+  <div id=wrap>
     <div id=brand>
       <div>
-        <div id=logo-container>
+        <div id=logo-wrap>
           <img src=<?= $logo ?>>
         </div>
         <div id=copy>
@@ -175,14 +175,14 @@ img.fill {
       </div>
     </div>
     <div class='row up' style='left:33.3%'>
-      <? foreach([0,1,2] as $i){ ?>
-      <div><img <?=check($i);?> src=<?= $images[$i] ?>></div>
-      <? } ?>
+    <? foreach([0,1,2] as $i){ ?>
+    <div><img <?=check($i);?> src=<?= $images[$i] ?>></div>
+    <? } ?>
     </div>
     <div class='row down' style='left:66.6%'>
-      <? foreach([5,4,3] as $i){ ?>
-      <div><img <?=check($i);?> src=<?= $images[$i] ?>></div>
-      <? } ?>
+    <? foreach([5,4,3] as $i){ ?>
+    <div><img <?=check($i);?> src=<?= $images[$i] ?>></div>
+    <? } ?>
     </div>
   </div>
 </body>

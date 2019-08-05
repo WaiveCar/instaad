@@ -18,7 +18,7 @@ function get($what) {
 }
 function check($x) {
   global $sizes;
-  return $sizes[$x] > 1080 ? 'class=fill' : '';
+  return $sizes[$x] > 1080 ? 'class=fill ' : '';
 }
 $handle = trim($_GET['user']);
 $contents = file_get_contents("https://instagram.com/$handle");
@@ -86,16 +86,6 @@ h3 {
 img.fill {
   min-width: calc(100vw/3 - 2vw);
 }
-.row div {
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  border-radius: 2vw;
-  margin: 2vw 0;
-  height: calc(100vw/3 - 2vw);
-  width: calc(100vw/3 - 2vw);
-  overflow: hidden
-}
 #brand {
   display: flex;
   align-items: center;
@@ -106,28 +96,40 @@ img.fill {
 }
 #logo-wrap {
   display: inline-flex;
-  justify-content: space-around;
   align-items: center;
-  width: 16.5vw;
+  justify-content: space-around;
   height: 16.5vw;
+  width: 16.5vw;
 }
 #copy { 
   animation-name: brandslide;
 }
 #brand img {
   border-radius: 50vw;
-  padding: 0.2vw;
   border: 1px solid #e4e4e4;
+  padding: 0.2vw;
   width: 100%;
   animation-name: zoomout;
 }
 .row.down {
   bottom: 0;
+  margin-bottom: -0.2vw;
   animation-name: slidedown;
 }
 .row.up {
   top: 0;
   animation-name: slideup;
+}
+.row div {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  /*box-shadow: 0 0 0 4px #fff;*/
+  border-radius: 2vw;
+  height: calc(100vw/3 - 2vw);
+  width: calc(100vw/3 - 2vw);
+  margin: 2vw 0;
+  overflow: hidden
 }
 @keyframes zoomout {
   0% { margin-top: -35vw;}
@@ -146,18 +148,18 @@ img.fill {
   90%,100% { margin-left: 33% }
 }
 @keyframes slideup {
-  0% { transform: translateY(35.1vw); opacity: 0 }
+  0% { transform: translateY(35.33vw); opacity: 0 }
   10%,23% { transform: translateY(0); opacity: 1 }
-  36%,50% { transform: translateY(-35.3vw) }
-  63%,77% { transform: translateY(calc(-35.3vw * 2)); opacity: 1 }
-  90%,100% { transform: translateY(calc(-35.3vw * 3)); opacity: 0 }
+  36%,50% { transform: translateY(-35.33vw) }
+  63%,77% { transform: translateY(calc(-35.33vw * 2)); opacity: 1 }
+  90%,100% { transform: translateY(calc(-35.33vw * 3)); opacity: 0 }
 }
 @keyframes slidedown {
-  from { transform: translateY(-35.1vw); opacity: 0 }
+  from { transform: translateY(-35.33vw); opacity: 0 }
   10%,23% { transform: translateY(0); opacity: 1 }
-  36%,50% { transform: translateY(35.3vw) }
-  63%,77% { transform: translateY(calc(35.3vw * 2)); opacity: 1 }
-  90%,100% { transform: translateY(calc(35.3vw * 3)); opacity: 0 }
+  36%,50% { transform: translateY(35.33vw) }
+  63%,77% { transform: translateY(calc(35.33vw * 2)); opacity: 1 }
+  90%,100% { transform: translateY(calc(35.33vw * 3)); opacity: 0 }
 }
 </style>
 <body class=dark>
@@ -173,14 +175,14 @@ img.fill {
         </div>
       </div>
     </div>
-    <div class='row up' style='left:33.3%'>
+    <div class='row up' style=left:33.3%>
     <? foreach([0,1,2] as $i){ ?>
-    <div><img <?=check($i);?> src=<?= $images[$i] ?>></div>
+    <div><img <?=check($i);?>src=<?= $images[$i] ?>></div>
     <? } ?>
     </div>
-    <div class='row down' style='left:66.6%'>
+    <div class='row down' style=left:66.6%>
     <? foreach([5,4,3] as $i){ ?>
-    <div><img <?=check($i);?> src=<?= $images[$i] ?>></div>
+    <div><img <?=check($i);?>src=<?= $images[$i] ?>></div>
     <? } ?>
     </div>
   </div>

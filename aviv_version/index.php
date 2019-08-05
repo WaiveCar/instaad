@@ -62,7 +62,6 @@ h2 {
 h3 {
   font-size: 1.75vw;
   font-weight: 300;
-  text-transform: lowercase;
 }
 #wrap {
   height: 35.1vw;

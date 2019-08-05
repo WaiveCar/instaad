@@ -22,8 +22,8 @@ function check($x) {
 }
 $handle = trim($_GET['user']);
 $contents = file_get_contents("https://instagram.com/$handle");
-$name = $_GET['smalltext'] ?: json_decode('"' . get('full_name') . '"');
-$bigtext = $_GET['bigtext'] ?: $handle;
+$bigtext = $_GET['bigtext'] ?: "@$handle";
+$smalltext = $_GET['smalltext'] ?: json_decode('"' . get('full_name') . '"');
 $logo = get('profile_pic_url_hd');
 
 preg_match_all('/.height.:(\d*),.width.:1080},.display_url...([^"]*)/', $contents, $matchList);
@@ -39,7 +39,7 @@ for($ix = count($images); $ix < 6; $ix ++) {
 $dur = $_GET['duration'] ?: 16;
 
 if(!empty($_GET['loop'])) {
-  echo "<meta http-equiv=refresh content=" . $dur - 1.75 . ">";
+  echo "<meta http-equiv=refresh content=" . (floatval($dur) - 1.4) . ">";
 }
 
 ?>
@@ -199,7 +199,7 @@ img.fill {
         <img src=<?= $logo ?>>
       </div>
       <div id=copy>
-        <h2>@<?= $bigtext ?></h2>
+        <h2><?= $bigtext ?></h2>
         <h3><?= $smalltext ?></h3>
       </div>
     </div>

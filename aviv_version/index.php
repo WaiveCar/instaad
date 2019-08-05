@@ -1,4 +1,16 @@
 <?
+/*
+ * Parameters:
+ * 
+ *   - bigtext: The text to replace the @handle
+ *   - smalltext: The text to replace the words below
+ *   - user: The user to parse
+ *   - duration: The time in seconds to show
+ *   - loop: Whether to loop the show or just stop 
+ *
+ *   Future:
+ *     assetlist: Assets to show instead of "detecting" them
+ */
 function get($what) {
   global $contents;
   preg_match_all('/"' . $what . '...([^"]*)/', $contents, $matchList);
@@ -8,16 +20,12 @@ function check($x) {
   global $sizes;
   return $sizes[$x] > 1080 ? 'class=fill' : '';
 }
-if(empty($_GET['user'])) {
-  echo "<script>window.location += prompt('Give me an instagram user or multiple separated by commas');</script>";
-  exit;
-}
-$list = explode(',', $_GET['user']);
-$handle = trim(array_shift($list));
+$handle = trim($_GET['user']);
 $contents = file_get_contents("https://instagram.com/$handle");
-
+$name = $_GET['smalltext'] ?: json_decode('"' . get('full_name') . '"');
+$bigtext = $_GET['bigtext'] ?: $handle;
 $logo = get('profile_pic_url_hd');
-$name = json_decode('"' . get('full_name') . '"');
+
 preg_match_all('/.height.:(\d*),.width.:1080},.display_url...([^"]*)/', $contents, $matchList);
 $sizes = $matchList[1];
 $images = $matchList[2];
@@ -28,14 +36,14 @@ for($ix = count($images); $ix < 6; $ix ++) {
   $iy++;
 }
 
-$dur = 16;
+$dur = $_GET['duration'] ?: 16;
 
-$list[] = $handle;
-$list = implode(',', $list);
+if(!empty($_GET['loop'])) {
+  echo "<meta http-equiv=refresh content=" . $dur - 1.75 . ">";
+}
 
 ?>
-<meta http-equiv=refresh content="<?= $dur - 1.75 ?>; url=/ad/<?= $list ?>">
-<link href="https://fonts.googleapis.com/css?family=Roboto:300,400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Roboto:300,400&display=swap" rel=stylesheet>
 <style>
 * {
   animation-duration: <?= $dur ?>s;
@@ -59,7 +67,6 @@ h3 {
   font-weight: 300;
   text-transform: lowercase;
 }
-
 #container {
   height: 35.1vw;
   position: relative;
@@ -192,8 +199,8 @@ img.fill {
         <img src=<?= $logo ?>>
       </div>
       <div id=copy>
-        <h2>@<?= $handle ?></h2>
-        <h3><?= $name ?></h3>
+        <h2>@<?= $bigtext ?></h2>
+        <h3><?= $smalltext ?></h3>
       </div>
     </div>
   </div>

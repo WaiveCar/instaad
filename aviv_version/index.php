@@ -51,7 +51,7 @@ body.dark {
   background: #000 
 }
 h2,h3,body { 
-  margin: 0 ;
+  margin: 0;
   font-family: 'Roboto', sans-serif;
 }
 h2 { 
@@ -143,55 +143,46 @@ img.fill {
 @keyframes logo {
   0% { margin-left: 33%; opacity: 0 }
   5% { opacity: 1 }
-  10% { margin-left: 0 }
-  77% { margin-left: 0 }
+  10%,77% { margin-left: 0 }
   90%,100% { margin-left: 33% }
 }
 @keyframes slideup {
   0% { transform: translateY(35.1vw); opacity: 0 }
-  10% { transform: translateY(0); opacity: 1 }
-  23% { transform: translateY(0) }
-  36% { transform: translateY(-35.3vw) }
-  50% { transform: translateY(-35.3vw) }
-  63% { transform: translateY(calc(-35.3vw * 2)) }
-  77% { transform: translateY(calc(-35.3vw * 2)); opacity: 1 }
+  10%,23% { transform: translateY(0); opacity: 1 }
+  36%,50% { transform: translateY(-35.3vw) }
+  63%,77% { transform: translateY(calc(-35.3vw * 2)); opacity: 1 }
   90%,100% { transform: translateY(calc(-35.3vw * 3)); opacity: 0 }
 }
 @keyframes slidedown {
   from { transform: translateY(-35.1vw); opacity: 0 }
-  10% { transform: translateY(0); opacity: 1; }
-  23% { transform: translateY(0) }
-  36% { transform: translateY(35.3vw) }
-  50% { transform: translateY(35.3vw) }
-  63% { transform: translateY(calc(35.3vw * 2)) }
-  77% { transform: translateY(calc(35.3vw * 2)); opacity: 1 }
+  10%,23% { transform: translateY(0); opacity: 1 }
+  36%,50% { transform: translateY(35.3vw) }
+  63%,77% { transform: translateY(calc(35.3vw * 2)); opacity: 1 }
   90%,100% { transform: translateY(calc(35.3vw * 3)); opacity: 0 }
 }
 </style>
-</head>
 <body class=dark>
-<div id=container>
-  <div id=brand>
-    <div>
-      <div id=logo-container>
-        <img src=<?= $logo ?>>
-      </div>
-      <div id=copy>
-        <h2><?= $bigtext ?></h2>
-        <h3><?= $smalltext ?></h3>
+  <div id=container>
+    <div id=brand>
+      <div>
+        <div id=logo-container>
+          <img src=<?= $logo ?>>
+        </div>
+        <div id=copy>
+          <h2><?= $bigtext ?></h2>
+          <h3><?= $smalltext ?></h3>
+        </div>
       </div>
     </div>
+    <div class='row up' style='left:33.3%'>
+      <? foreach([0,1,2] as $i){ ?>
+      <div><img <?=check($i);?> src=<?= $images[$i] ?>></div>
+      <? } ?>
+    </div>
+    <div class='row down' style='left:66.6%'>
+      <? foreach([5,4,3] as $i){ ?>
+      <div><img <?=check($i);?> src=<?= $images[$i] ?>></div>
+      <? } ?>
+    </div>
   </div>
-  <div class='row up' style='left:33.3%'>
-    <? foreach([0,1,2] as $i){ ?>
-    <div><img <?=check($i);?> src=<?= $images[$i] ?>></div>
-    <? } ?>
-  </div>
-  <div class='row down' style='left:66.6%'>
-    <? foreach([5,4,3] as $i){ ?>
-    <div><img <?=check($i);?> src=<?= $images[$i] ?>></div>
-    <? } ?>
-  </div>
-</div>
 </body>
-</html>

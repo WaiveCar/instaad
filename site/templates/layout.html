@@ -1,11 +1,54 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <script src = "">
-
-    </script>
+<html lang = "en">
+ <head>
+   <title>WaiveAd</title>
+  <meta charset = "utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!--Latest stylesheet, as of 08/03/19, needed to run Bootstrap 4 -->
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <!-- For cool icons -->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+  <link rel="stylesheet" type="text/css" href="{{url_for('static',filename='main.css')}}">
   </head>
   <body>
-    {% block body %} {% endblock %}
+    <nav class = "navbar pt-2 pb-2 fixed-top bg-white">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="{{url_for('home')}}">
+            <img src="{{url_for('static',filename='media/waive-logo_300.png')}}" alt="Waive Logo" height="30vw">
+          </a>
+        </div>
+        <ul class="nav navbar-nav navbar-right">
+          <li class = "nav-item nav-link"><a href="{{url_for('register')}}"><span class="fas fa-user"></span> Register</a></li>
+          <li class = "nav-item nav-link"><a href="{{url_for('login')}}"><span class="fas fa-archway"></span> Login</a></li>
+        </ul>
+      </div>
+    </nav>
+    <div class = "container">
+      {% with messages=get_flashed_messages(with_categories=true) %}
+        {% if messages%}
+          {% for category, message in messages %}
+            <div class="alert alert-{{category}}">
+              {{ message }}
+            </div>
+          {% endfor%}
+        {% endif%}
+      {% endwith%}
+      {% block body %} {% endblock %}
+    </div>
+    <footer class = "page-footer fixed-bottom mt-2  text-center">
+      <div class = "container-fluid bg-dark text-white">
+        ©2019 Waive. <a href="mailto:support@waivecar.com">Contact</a>
+      </div>
+    </footer>
+
+    <!--3 latest scripts, as of 08/03/19, needed to run Bootstrap 4 -->
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <!-- Popper JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
   </body>
 </html>

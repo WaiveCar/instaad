@@ -8,7 +8,13 @@
      <p class="lead">
        Starting at <b>$1.00</b>
     </div>
-
+  </div>
+  <div class="container bg-white">
+    {% if current_user.is_authenticated %}
+      Start a new campaign
+    {% else %}
+      Register for an account today and start promoting yourself!
+    {% endif %}
   </div>
 </div>
 

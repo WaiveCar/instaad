@@ -12,34 +12,41 @@
   <link rel="stylesheet" type="text/css" href="{{url_for('static',filename='main.css')}}">
   </head>
   <body>
-    <nav class = "navbar pt-2 pb-2 fixed-top bg-white">
-      <div class="container-fluid">
+    <nav class = "navbar navbar-expand-sm fixed-top bg-white">
+      <div class="container">
         <div class="navbar-header">
           <a class="navbar-brand" href="{{url_for('home')}}">
-            <img src="{{url_for('static',filename='media/waive-logo_300.png')}}" alt="Waive Logo" height="30vw">
+            <img src="{{url_for('static',filename='media/waive-logo_300.png')}}" alt="Waive Logo" height="40vw">
           </a>
         </div>
         <ul class="nav navbar-nav navbar-right">
-          <li class = "nav-item nav-link"><a href="{{url_for('register')}}"><span class="fas fa-user"></span> Register</a></li>
-          <li class = "nav-item nav-link"><a href="{{url_for('login')}}"><span class="fas fa-archway"></span> Login</a></li>
+          {% if current_user.is_authenticated %}
+            <li class = "nav-item nav-link"><a href="{{url_for('user')}}"><span class="fas fa-user"></span> My Account</a></li>
+            <li class = "nav-item nav-link"><a href="{{url_for('logout')}}"><span class="fas fa-sign-out-alt"></span> Logout</a></li>
+          {% else %}
+            <li class = "nav-item nav-link"><a href="{{url_for('register')}}"><span class="fas fa-user"></span> Register</a></li>
+            <li class = "nav-item nav-link"><a href="{{url_for('login')}}"><span class="fas fa-archway"></span> Login</a></li>
+          {% endif %}
         </ul>
       </div>
     </nav>
-    <div class = "container">
-      {% with messages=get_flashed_messages(with_categories=true) %}
-        {% if messages%}
-          {% for category, message in messages %}
-            <div class="alert alert-{{category}}">
-              {{ message }}
-            </div>
-          {% endfor%}
-        {% endif%}
-      {% endwith%}
-      {% block body %} {% endblock %}
-    </div>
+    <main role="main" class="container-fluid">
+      <div>
+        {% with messages=get_flashed_messages(with_categories=true) %}
+          {% if messages %}
+            {% for category, message in messages %}
+              <div class="alert alert-{{category}}">
+                {{ message }}
+              </div>
+            {% endfor %}
+          {% endif %}
+        {% endwith %}
+        {% block body %} {% endblock %}
+      </div>
+    </main>
     <footer class = "page-footer fixed-bottom mt-2  text-center">
       <div class = "container-fluid bg-dark text-white">
-        ©2019 Waive. <a href="mailto:support@waivecar.com">Contact</a>
+        ©2019, Waive. <a href="mailto:support@waivecar.com">Contact</a>
       </div>
     </footer>
 

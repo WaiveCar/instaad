@@ -1,0 +1,40 @@
+{% extends 'layout.html' %}
+{% block body %}
+<div class="container content-section">
+  <h3> Email: {{current_user.email}} </h3>
+  <div class="row">
+    <div class="col">
+      <h4> Campaigns: </h4>
+      {% if current_user.campaigns %}
+
+      {% else %}
+        No campaigns in sight
+      {% endif %}
+    </div>
+    <div class="col">
+      <h3>Connections:</h3>
+      <h3>Instagram</h3>
+      {% if current_user.instagram_auth %}
+
+      {% else %}
+        <form method="post">
+          <a href="https://api.instagram.com/oauth/authorize/?client_id=2061511199cc4006b94a78f1f9324c99&redirect_uri=https://preview.waivescreen.com/callback/&response_type=code">
+          <button id="instagram-buttton" type="button">Instagram Authentication</button> </a>
+        </form>
+      {% endif %}
+    </div>
+    <div class="col">
+      <h3>Payments</h3>
+
+    </div>
+  </div>
+  <div class="container">
+
+    <div class="row">
+      <div class="col">
+
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

@@ -53,11 +53,24 @@ After that you log in then.
 
 ```
   your promotion just played in Culver City
-  Your promo has 25 free plays left
+  Your instagram has XX free plays left
 
   Want more?
   Want to customize?
 
   Finish your account setup
+
+    email / password / credit card
 ```
+
+The important parts are:
+
+  * A visceral response that the ad already happened
+  * Something that can be visualized of what actually happened
+  * An endorphine/dopamine loop that helps to hook people to the status
+  * The actual convergence of getting payment info and email.
+  * Not talking about unit economics or how affordable something is.
+
+The last one is important: If you offer a decent product at a decent price you shouldn't
+have to emphasize that fact ... "show not tell".
 

@@ -10,12 +10,15 @@ class User(db.Model, UserMixin):
     campaigns = db.relationship('Campaign',backref='user',lazy=True)
     email = db.Column(db.String, unique = True,)
     id = db.Column(db.Integer, primary_key = True)
-    instagram_auth = db.Column(db.Boolean, default = False)
     instagram = db.Column(db.String)
+<<<<<<< HEAD
     last_city = db.Column(db.String)
     password = db.Column(db.String(60), nullable = True)
+=======
+    password = db.Column(db.String(60))
+>>>>>>> 04f7a779e05f059db04222ade3eeb302356db8f1
     def __repr__(self):
-        return f"User('{self.email}')"
+        return f"User('{self.email}','{self.instagram}')"
 
 class Campaign(db.Model):
     id = db.Column(db.Integer, primary_key=True)

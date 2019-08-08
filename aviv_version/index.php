@@ -37,7 +37,7 @@ for($ix = count($images); $ix < 6; $ix ++) {
 }
 
 $dur = $_GET['duration'] ?: 16;
-$loop = $_GET['loop'] ? 'infinite' : '';
+$loop = 'infinite';
 
 ?>
 <link href=https://fonts.googleapis.com/css?family=Roboto:300,400&display=swap rel=stylesheet>
@@ -60,6 +60,10 @@ $loop = $_GET['loop'] ? 'infinite' : '';
   opacity: 0.05;
   border-radius: 500vw;
   
+}
+body { 
+  background: #fff;
+  overflow: hidden;
 }
 body.dark { 
   color: #fff;
@@ -87,7 +91,6 @@ h3 {
 }
 #wrap {
   height: 35.1vw;
-  box-shadow: 0 0 0 4px #000;
   position: relative;
   overflow: hidden;
 }

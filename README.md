@@ -13,10 +13,10 @@ http://staging.waivescreen.com/api/sensor_history
 http://staging.waivescreen.com/api/campaigns
 
 ## pip modules to install for web
-* virtualenv
-* django
 * flask
-* sqlalchemy
+* flask_sqlalchemy
+* flask_bcrypt
+* flask_wtf
 
 ## Server directories
 * django server code - /home/dango_code

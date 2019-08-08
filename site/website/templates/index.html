@@ -1,23 +1,19 @@
 {% extends 'layout.html' %}
 {% block body %}
-<div class="">
-  You can promote with your existing Instagram account Instantly on our Magical Screens
-  Anybody can do it
-  No Agency Required
-  No Credit Card required
-  No hidden fees
+<div id = "intro"class="">
+  You can promote with your existing Instagram account Instantly on our Magical Screens <br>
+  Anybody can do it <br>
+  No Agency Required <br>
+  No Credit Card required <br>
+  No hidden fees <br>
+  <br>
+  And it's just 1 button. <br>
+  This button, right here!<br>
 
-  And it's just 1 button.
-  This button, right here!
 
-  
-  <button></button>
+  <button type = "button" id = "instagram-button" class="btn"> <a href="#">Instagram Authentication</a></button>
   Yes that one!
 
-
-  <div style = "background-image:url({{url_for('static',filename='media/carjumbo.png')}});"class="jumbotron jumbotron-fluid">
-    <div class="container text-white">
-  </div>
-</div>
+  <img class = "img-fluid" src="{{url_for('static',filename='media/carjumbo.png')}}" alt=""> </img>
 
 {% endblock %}

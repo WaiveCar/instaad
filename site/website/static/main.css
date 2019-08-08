@@ -27,7 +27,16 @@ body {
   margin-bottom: 20px;
 }
 
-#instagram-buttton {
+#carjumbo {
+  width: 100vw;
+  height: 50hw
+}
+
+#intro {
+  font-family: 'Montserrat', sans-serif;
+}
+#instagram-button {
+
   margin: auto
 & a;
   padding: 15px 30px;
@@ -45,9 +54,10 @@ padding-top: 10px;
     box-shadow: 0 0 4px 3px rgba(0,0,0,0.15);
     transition: all .3s
   & i;
-    color: #FFF;
+    color: white;
     font-size: 18px;
 }
+
 .account-heading {
   font-size: 2.5rem;
 }

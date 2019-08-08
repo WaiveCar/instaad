@@ -12,6 +12,7 @@ class User(db.Model, UserMixin):
     id = db.Column(db.Integer, primary_key = True)
     instagram_auth = db.Column(db.Boolean, default = False)
     instagram = db.Column(db.String)
+    last_city = db.Column(db.String)
     password = db.Column(db.String(60), nullable = True)
     def __repr__(self):
         return f"User('{self.email}')"

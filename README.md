@@ -13,11 +13,19 @@ http://staging.waivescreen.com/api/sensor_history
 http://staging.waivescreen.com/api/campaigns
 
 ## pip modules to install for web
-__Recomennded to be done using a venv __
+__Recomennded to be done using a venv__
 * flask
 * flask_sqlalchemy
 * flask_bcrypt
 * flask_wtf
+### Steps for setting up venv
+Run these commands in the shell
+```
+python3 -m venv website/venv
+cd website
+source venv/bin/activate
+pip3 install -r requirements.txt
+```
 
 ## Server directories
 * django server code - /home/dango_code
@@ -27,9 +35,9 @@ __Recomennded to be done using a venv __
 * turn info to html - /etc/pyfiles/get_db_create_ad.py
 
 ## Production vs Development
-In order to update the server or set up a develpment server these things should be done. _This is due to be changed so it wont be so tedious_
-*Get rid of the website/config_local.py if you're on production 
-	*If you're on development then change config_local.py to config.py
+In order to update the server or set up a develpment server these things should be done. _This is due to be changed so it wont be so tedious_.
+* Get rid of the website/config_local.py if you're on production 
+	* If you're on development then change config_local.py to config.py
 
 
 ### Flow

@@ -13,6 +13,7 @@ http://staging.waivescreen.com/api/sensor_history
 http://staging.waivescreen.com/api/campaigns
 
 ## pip modules to install for web
+__Recomennded to be done using a venv __
 * flask
 * flask_sqlalchemy
 * flask_bcrypt

@@ -8,4 +8,4 @@ campaigns = Blueprint('campaigns', __name__)
 @campaigns.route("/campaign")
 @login_required
 def campaign():
-    return (render_template('campaign.html',title='WaiveAd'))
+    return (render_template('free_campaign.html',title='WaiveAd'))

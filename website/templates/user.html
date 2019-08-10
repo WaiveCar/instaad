@@ -8,7 +8,7 @@
       {% if current_user.campaigns %}
 
       {% else %}
-        No campaigns in sight
+        <a href="{{url_for('campaigns.campaign')}}">Lack of campaigns</a>
       {% endif %}
     </div>
     <div class="col">

@@ -22,8 +22,7 @@ __Recomennded to be done using a venv__
 Run these commands in the shell
 ```
 python3 -m venv website/venv
-cd website
-source venv/bin/activate
+source website/venv/bin/activate
 pip3 install -r requirements.txt
 ```
 

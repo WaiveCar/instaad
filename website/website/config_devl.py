@@ -1,4 +1,3 @@
-import os
 #Change file name to config.py if in local developemt
 #delete file if in production
 

@@ -12,17 +12,21 @@ http://staging.waivescreen.com/api/sensor_history
 
 http://staging.waivescreen.com/api/campaigns
 
+## What keeps the server going
+Gunicorn (A python3 module that) keeps the python files in check and supervisor (apt install program) kee[ps gunicorn constantly running
+
 ## pip modules to install for web
 __Recomennded to be done using a venv__
 * flask
 * flask_sqlalchemy
 * flask_bcrypt
 * flask_wtf
+`
 ### Steps for setting up venv
 Run these commands in the shell
 ```
 python3 -m venv website/venv
-source website/venv/bin/activate
+source venv/bin/activate
 pip3 install -r requirements.txt
 ```
 

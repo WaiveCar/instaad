@@ -25,10 +25,24 @@ __Recomennded to be done using a venv__
 ### Steps for setting up venv
 Run these commands in the shell
 ```
-python3 -m venv website/venv
+python3 -m venv venv
 source venv/bin/activate
 pip3 install -r requirements.txt
 ```
+
+## "Updating the database" (only temp till we switch to a prod database
+Good to run this from the virtual env
+run python3 at the root of the project
+'''
+from website import create_app, db
+app = create_app()
+ctx = app.app_context()
+ctx.push()  # start working on database after that command
+# Database manipulations here
+# ...
+ctx.pop()  # exit from the app
+exit()
+'''
 
 ## Server directories
 * django server code - /home/dango_code

@@ -15,13 +15,13 @@ http://staging.waivescreen.com/api/campaigns
 ## What keeps the server going
 Gunicorn (A python3 module that) keeps the python files in check and supervisor (apt install program) keeps gunicorn constantly running. 
 #### Restart the server with 
-'''
+```
 sudo systemctl restart nginx
-'''
+```
 Restarting supervisor
-'''
+```
 sudo supervisorctl reload
-'''
+```
 
 ## pip modules to install for web
 __Recomennded to be done using a venv__
@@ -41,7 +41,7 @@ pip3 install -r requirements.txt
 ## "Updating the database" (only temp till we switch to a prod database)
 Good to run this from the virtual env
 run python3 at the root of the project
-'''
+```
 from website import create_app, db
 from website.models import User, Campaign # not necessary but you will most likely want it
 app = create_app()
@@ -51,7 +51,7 @@ ctx.push()
 #...
 ctx.pop()  # exit from the app
 exit()
-'''
+```
 
 ## Server directories
 * django server code - /home/dango_code

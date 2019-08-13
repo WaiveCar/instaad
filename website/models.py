@@ -3,10 +3,14 @@ from website import db, login_manager
 from flask_login import UserMixin
 
 @login_manager.user_loader
-def load_user(user_id):
-     return User.query.get(int(user_id))
+def load_user(id):
+     return User.query.get(int(id))
+
+def load_campaign(id):
+     return Campaign.query.get(int(id))
 
 class User(db.Model, UserMixin):
+    __tablename__ = 'user'
     campaigns = db.relationship('Campaign',backref='user',lazy=True)
     email = db.Column(db.String, unique = True)
     paid_user = db.Column(db.Boolean, default = False)
@@ -17,6 +21,7 @@ class User(db.Model, UserMixin):
         return f"User('{self.email}','{self.instagram}')"
 
 class Campaign(db.Model):
+    __tablename__ = 'campaign'
     content_link = db.Column(db.String(30))
     date_paid = db.Column(db.DateTime)
     date_registered = db.Column(db.DateTime, nullable = False, default = datetime.utcnow)

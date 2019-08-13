@@ -4,4 +4,5 @@
 class Config:
 	SECRET_KEY='84e0621dd931baa7e6a014901c6183d5'
 	#sqllite is for development purposes
-	SQLALCHEMY_DATABASE_URI='sqlite:///site.db'
+	SQLALCHEMY_DATABASE_URI='mysql:///root:mysqlsucks@localhost/website'
+#	SQLALCHEMY_DATABASE_URI='sqlite:///test.db'

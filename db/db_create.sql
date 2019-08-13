@@ -1,7 +1,7 @@
 CREATE TABLE user
 (
         email VARCHAR(50),
-        paid_user BOOLEAN,
+        paid_user BOOLEAN DEFAULT 'True',
         id INTEGER NOT NULL AUTO_INCREMENT,
         instagram VARCHAR(30),
         password VARCHAR(60),

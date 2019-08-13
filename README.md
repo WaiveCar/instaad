@@ -22,6 +22,10 @@ Restarting supervisor
 ```
 sudo supervisorctl reload
 ```
+supervisor constantly runs the command 
+```
+gunicorn -w 3 run:app
+```
 
 ## pip modules to install for web
 __Recomennded to be done using a venv__
@@ -64,7 +68,7 @@ exit()
 In order to update the server or set up a develpment server these things should be done. _This is due to be changed so it wont be so tedious_.
 * Get rid of the website/config_local.py if you're on production 
 	* If you're on development then change config_local.py to config.py
-
+Config file is in /etc/config.json
 
 ### Flow
 

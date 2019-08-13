@@ -1,4 +1,4 @@
-#/ InstaAd for Waive
+# InstaAd for Waive
 
 website is at preview.waivescreen.com for now
 
@@ -47,8 +47,8 @@ from website.models import User, Campaign # not necessary but you will most like
 app = create_app()
 ctx = app.app_context()
 ctx.push()
-# Database manipulations here
-# ...
+#Database manipulations here
+#...
 ctx.pop()  # exit from the app
 exit()
 '''

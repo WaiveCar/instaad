@@ -11,6 +11,7 @@ CREATE TABLE user
 );
 CREATE TABLE campaign
 (
+	ig_code VARCHAR(30),
         date_paid DATETIME,
         date_registered DATETIME NOT NULL,
         date_started DATETIME,

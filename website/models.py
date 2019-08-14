@@ -22,6 +22,7 @@ class User(db.Model, UserMixin):
 
 class Campaign(db.Model):
     __tablename__ = 'campaign'
+    ig_code = db.Column(db.String)
     content_link = db.Column(db.String(30))
     date_paid = db.Column(db.DateTime)
     date_registered = db.Column(db.DateTime, nullable = False, default = datetime.utcnow)

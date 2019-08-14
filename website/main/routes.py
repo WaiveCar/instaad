@@ -1,4 +1,5 @@
-from flask import Blueprint, render_template, request
+from flask import Blueprint, render_template, redirect, request
+from website import config
 
 main = Blueprint('main', __name__)
 
@@ -7,6 +8,10 @@ main = Blueprint('main', __name__)
 def home():
     return (render_template('index.html',title='WaiveAd'))
 
-@main.route("/callback")
+@main.route("/callback/")
 def callback():
-    return redirect(url_for('home.home'))
+    code = request.args.get('code')
+    print(code)
+    print("IG_CLIENT_ID: " + IG_CLIENT_ID)
+    #first_r = request.get()
+    return home() 

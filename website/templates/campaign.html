@@ -1,12 +1,16 @@
 {% extends 'layout.html' %}
 {% block body %}
-Your promotion just played in Culver City <br>
-Your instagram has XX free plays left <br>
-<br>
-Want more? <br>
-Want to customize? <br>
-<br>
-Finish your account setup <br>
-
-  email / password / credit card
+<div class="container">
+   Your promotion just played in
+   <h3>
+   {% if campaign.last_city==None %}
+   Los Angeles
+   {% else %}
+   {{campaign.last_city}}
+   {% endif %}
+   </h3>
+   Your promotion has {{campaign.plays_left}} free plays left <br>
+   <h2> Your cool ad </h2>
+   <iframe id="ig-frame"src="http://9ol.es/ad-new/?user={{campaign.ig_username}}"height="100vh"> </iframe>
+</div>
 {% endblock %}

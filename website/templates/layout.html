@@ -23,7 +23,8 @@
             <img src="{{url_for('static',filename='media/waive-logo_300.png')}}" alt="Waive Logo" height="40vw">
           </a>
         </div>
-        <ul class="nav navbar-nav navbar-right">
+	<!--
+	<ul class="nav navbar-nav navbar-right">
           {% if current_user.is_authenticated %}
             {%if current_user.paid_user%}
               <li class = "nav-item nav-link"><a href="{{url_for('users.user')}}"><span class="fas fa-user"></span> My Account</a></li>
@@ -35,7 +36,8 @@
             <li class = "nav-item nav-link"><a href="{{url_for('users.register')}}"><span class="fas fa-user"></span> Register</a></li>
             <li class = "nav-item nav-link"><a href="{{url_for('users.login')}}"><span class="fas fa-archway"></span> Login</a></li>
           {% endif %}
-        </ul>
+	</ul>
+	-->
       </div>
     </nav>
     <main role="main" class="container-fluid">

@@ -15,21 +15,18 @@ class User(db.Model, UserMixin):
     email = db.Column(db.String, unique = True)
     paid_user = db.Column(db.Boolean, default = False)
     id = db.Column(db.Integer, primary_key = True)
-    instagram = db.Column(db.String)
     password = db.Column(db.String(60), nullable = True)
     def __repr__(self):
-        return f"User('{self.email}','{self.instagram}')"
+        return f"User('{self.email}','{self.id}')"
 
 class Campaign(db.Model):
     __tablename__ = 'campaign'
-    ig_code = db.Column(db.String)
-    content_link = db.Column(db.String(30))
-    date_paid = db.Column(db.DateTime)
-    date_registered = db.Column(db.DateTime, nullable = False, default = datetime.utcnow)
-    date_started = db.Column(db.DateTime, nullable = True)
+    date_registered = db.Column(db.DateTime, nullable = True)
+    plays_left = db.Column(db.Integer)
     id = db.Column(db.Integer, primary_key= True)
+    ig_username = db.Column(db.String, unique=True)
     last_city = db.Column(db.String)
     paid = db.Column(db.Boolean, default = False)
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable = False)
     def __repr__(self):
-        return f"Campaign('{self.id}','{self.user_id}', '{self.date_registered}','{self.content}')"
+        return f"Campaign('{self.id}','{self.user_id}', '{self.date_registered}')"

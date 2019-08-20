@@ -22,6 +22,8 @@ Restarting supervisor
 ```
 sudo supervisorctl reload
 ```
+This [link](https://stackoverflow.com/questions/18859063/supervisor-socket-error-issue) is helpful regarding configuring supervisor 
+
 supervisor constantly runs the command 
 ```
 gunicorn -w 3 run:app

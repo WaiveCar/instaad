@@ -1,7 +1,8 @@
 {% extends 'layout.html' %}
 {% block body %}
 <div class="container">
-   Your promotion just played in
+ <div class="container">
+   Your Instagram just played in
    <h3>
    {% if campaign.last_city==None %}
    Los Angeles
@@ -9,8 +10,9 @@
    {{campaign.last_city}}
    {% endif %}
    </h3>
-   Your promotion has {{campaign.plays_left}} free plays left <br>
-   <h2> Your cool ad </h2>
-   <iframe id="ig-frame"src="http://9ol.es/ad-new/?user={{campaign.ig_username}}"height="100vh"> </iframe>
+  </div>
+  <div class="container">
+   <iframe id="ig-frame"src="https://9ol.es/ad-new/?user={{campaign.ig_username}}"height="100vh"> </iframe>
+  </div>
 </div>
 {% endblock %}

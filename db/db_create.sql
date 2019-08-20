@@ -10,12 +10,13 @@ CREATE TABLE user
 );
 CREATE TABLE campaign
 (
-        date_registered DATETIME,
+        date_registered DATETIME DEFAULT NOW(),
         id INTEGER NOT NULL AUTO_INCREMENT,
 	ig_username VARCHAR(30) UNIQUE,
         last_city VARCHAR(25),
-        paid BOOLEAN,
-	plays_left INTEGER DEFAULT '25',
+	lat DECIMAL(10,7),
+	lng DECIMAL(10,7),
+        paid BOOLEAN DEFAULT '0',
         user_id INTEGER NOT NULL,
         PRIMARY KEY (id),
         CHECK (paid IN (0, 1)),

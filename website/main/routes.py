@@ -31,6 +31,19 @@ def home():
                 db.session.commit()
                 login_user(user)
                 next_page = request.args.get('next')
+                campaign_submit(form.username.data)
                 return redirect(next_page) if next_page else redirect(url_for('campaigns.campaign'))
         return (render_template('index.html', form = form, title='WaiveAd'))
 
+def campaign_submit(username):
+    url = "http://staging.waivescreen.com/api/campaign"
+    secret = config['API_SECRET_KEY']
+    ref_id = username
+    asset = 'http://9ol.es/ad-new/?user='+username
+    req = requests.post(url, {
+        'url':url,
+        'secret':secret,
+        'ref_id':ref_id,
+        'asset':asset})
+    print("This responded with a status code of")
+    print(req.status_code)

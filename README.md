@@ -44,21 +44,6 @@ source venv/bin/activate
 pip3 install -r requirements.txt
 ```
 
-## "Updating the database" (only temp till we switch to a prod database)
-Good to run this from the virtual env
-run python3 at the root of the project
-```
-from website import create_app, db
-from website.models import User, Campaign # not necessary but you will most likely want it
-app = create_app()
-ctx = app.app_context()
-ctx.push()
-#Database manipulations here
-#...
-ctx.pop()  # exit from the app
-exit()
-```
-
 ## Server directories
 * django server code - /home/dango_code
 * current wordpress server - /var/www (will be removed soon)

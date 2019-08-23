@@ -7,8 +7,8 @@ class InstagramLogInForm(FlaskForm):
     username = StringField(u'Username', validators=[DataRequired()])
     submit = SubmitField('Put me on a screen in LA')
 class SettingsForm(FlaskForm):
-    business = RadioField('Business or non-business', choices=[('yes-busi','Business'),('no-busi','Non-business'),('both','Both')])
-    control_content = RadioField('Control of Content', choices=[(1,'Yes'),(0,'No')])
-    social = RadioField('Important Social Media', choices=[('newsfeed','Twitter/Facebook or another newsfeed site'),('videosite','Youtube or other video sites'),('reviewsite','Yelp or another review site'),('own website', 'Your website'),('aggregator','Reddit/Producthunt or other aggregator sites')])
+    business = RadioField(u'Business or non-business', choices=[('yes-busi','Business'),('no-busi','Non-business'),('both','Both')])
+    control_content = RadioField(u'Control of Content', choices=[(1,'Yes'),(0,'No')])
+    social = RadioField(u'Important Social Media', choices=[('newsfeed','Twitter/Facebook or another newsfeed site'),('videosite','Youtube or other video sites'),('reviewsite','Yelp or another review site'),('own website', 'Your website'),('aggregator','Reddit/Producthunt or other aggregator sites')])
     submit = SubmitField('Save')
 

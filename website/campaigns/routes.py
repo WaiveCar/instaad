@@ -7,30 +7,26 @@ from website.campaigns.forms import SettingsForm
 from website.config import config
 from website.models import Campaign
 import pdb
-
+from pprint import pprint
 
 campaigns = Blueprint('campaigns', __name__)
 
-@campaigns.route("/campaign", methods =['GET','POST'])
+@campaigns.route("/campaign", methods =['POST','GET'])
 #@login_required
 def campaign():
     if current_user.is_active == False:
         return(redirect(url_for('main.home')))
     campaign = campaign_retrieve(current_user.id)
     settings = SettingsForm()
-    print("settings")
-    print(settings)
     if campaign == "home":
         return redirect(url_for('users.logout'))
-    if settings.validate_on_submit():
-        print("here")
-        print(settings.control_content.data)
-        if settings.control_content.data != None:
-            campaign.sett_control_content = settings.control_content.data
-        if settings.business.data != None:
-            campaign.sett_business = settings.business.data
-        if settings.important.data == None:
-            campaign.sett_social = settings.important.data 
+    #None is in quotes and the "!=" is used instead of "is not" because that's currently getting pyhton to correctly behave
+    if (settings.business.data != "None" or settings.social.data != "None"):
+    #if settings.validate_on_submit():
+        print('here')
+        campaign.sett_control_content = settings.data.get('control_content')
+        campaign.sett_business = settings.data.get('business')
+        campaign.sett_social = settings.data.get('social')
         db.session.commit()
         return (redirect(url_for('campaigns.campaign')))
     return (render_template('campaign.html', settings = settings, campaign = campaign,title='WaiveAd'))
@@ -39,7 +35,6 @@ def campaign_retrieve(username):
     campaign = Campaign.query.filter_by(user_id=username).first()
     if campaign == None:
         return "home"
-    print(campaign)
     ig_username = campaign.ig_username
     url = "http://staging.waivescreen.com/api/campaign_history?ref_id="+ig_username
     req = requests.get(url)

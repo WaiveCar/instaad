@@ -29,7 +29,7 @@ class Campaign(db.Model):
     lng = db.Column(db.Integer)
     paid = db.Column(db.Boolean, default = False)
     sett_business = db.Column(db.String(20))
-    sett_control_content = db.Column(db.Boolean)
+    sett_control_content = db.Column(db.Integer)
     sett_social = db.Column(db.String(20))
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable = False)
     def __repr__(self):

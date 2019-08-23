@@ -46,12 +46,6 @@ img#bg-cover {
  right:10vw;
  /*float:right;*/
 }
-.radio-label {
-
-}
-
-#carjumbo {
-}
 
 #main {
   font-family: 'Montserrat', sans-serif;
@@ -72,13 +66,6 @@ img#bg-cover {
 .questions input {
 	display: none;
 }
-.questions .button {
+.questions button {
 	margin: 1px 3px 1px 3px;
-}
-.ul-list input[type="radio"] {
-	opacity:9.01;
-	z-index:100;
-}
-.ul-list input[type="radio"]:checked + label,
-.Checked + label {
 }

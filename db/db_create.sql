@@ -18,7 +18,7 @@ CREATE TABLE campaign
 	lng DECIMAL(10,7),
         paid BOOLEAN DEFAULT '0',
 	sett_business VARCHAR(20),
-	sett_control_content BOOLEAN,
+	sett_control_content INTEGER,
 	sett_social VARCHAR(20),
         user_id INTEGER NOT NULL,
         PRIMARY KEY (id),

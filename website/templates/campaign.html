@@ -15,18 +15,16 @@
   <div id="setting-div">
    <hr size=2>
    <h5> Settings </h5>
-   <form method="post">
-    {{settings.hidden_tag()}}
+   <form action="" method="POST">
+    {{ settings.hidden_tag() }}
     <div class="form-group">
      <div class="font-weight-bold"> Are you promoting the instagram you control the content of?</div>
      <br>
      <div class ="questions" data-toggle="buttons">
       {%for field in settings.control_content%}
-      <label class = "btn 
+      <label class = "btn btn-outline-primary 
       {%if campaign.sett_control_content == field.data%}
-       btn-primary
-      {%else %}
-       btn-outline-primary
+       active
       {%endif%}
       ">{{field.label}} {{field}}</label>
       {%endfor%}
@@ -37,11 +35,9 @@
      <br>
      <div class ="questions" data-toggle="buttons">
      {%for field in settings.business%}
-      <label class = "btn
+      <label class = "btn btn-outline-primary
       {%if campaign.sett_business == field.data%}
-       btn-primary
-      {%else %}
-       btn-outline-primary
+       active
       {%endif%}
       ">{{field.label}} {{field}}</label>
      {%endfor%}
@@ -52,11 +48,9 @@
      <br>
      <div class ="questions" data-toggle="buttons">
      {%for field in settings.social%}
-      <label class = "btn
+      <label class = "btn btn-outline-primary
       {%if campaign.sett_social == field.data%}
-       btn-primary
-      {%else %}
-       btn-outline-primary
+       active
       {%endif%}">{{field.label}} {{field}}</label>
      {%endfor%}
      </div>

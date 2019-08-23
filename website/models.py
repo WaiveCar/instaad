@@ -24,10 +24,13 @@ class Campaign(db.Model):
     date_registered = db.Column(db.DateTime, nullable = True)
     id = db.Column(db.Integer, primary_key= True)
     ig_username = db.Column(db.String, unique=True)
+    last_city = db.Column(db.String)
     lat = db.Column(db.Integer)
     lng = db.Column(db.Integer)
-    last_city = db.Column(db.String)
     paid = db.Column(db.Boolean, default = False)
+    sett_business = db.Column(db.String(20))
+    sett_control_content = db.Column(db.Boolean)
+    sett_social = db.Column(db.String(20))
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable = False)
     def __repr__(self):
         return f"Campaign('{self.id}','{self.user_id}','{self.last_city}', '{self.date_registered}')"

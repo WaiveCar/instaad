@@ -32,6 +32,7 @@ def home():
                 login_user(user)
                 next_page = request.args.get('next')
                 campaign_submit(form.username.data)
+                print(form.username.data)
                 return redirect(next_page) if next_page else redirect(url_for('campaigns.campaign'))
         return (render_template('index.html', form = form, title='WaiveAd'))
 

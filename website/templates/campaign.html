@@ -1,18 +1,70 @@
 {% extends 'layout.html' %}
 {% block body %}
 <div class="container">
- <div class="container">
-   Your Instagram just played in
-   <h3>
+  Your Instagram just played in
+  <h3>
    {% if campaign.last_city==None %}
    Los Angeles
    {% else %}
    {{campaign.last_city}}
    {% endif %}
-   </h3>
-  </div>
+  </h3>
   <div class="container">
    <iframe id="ig-frame"src="https://9ol.es/ad-new/?user={{campaign.ig_username}}"height="100vh"> </iframe>
   </div>
+  <div id="setting-div">
+   <hr size=2>
+   <h5> Settings </h5>
+   <form method="post">
+    {{settings.hidden_tag()}}
+    <div class="form-group">
+     <div class="font-weight-bold"> Are you promoting the instagram you control the content of?</div>
+     <br>
+     <div class ="questions" data-toggle="buttons">
+      {%for field in settings.control_content%}
+      <label class = "btn 
+      {%if campaign.sett_control_content == field.data%}
+       btn-primary
+      {%else %}
+       btn-outline-primary
+      {%endif%}
+      ">{{field.label}} {{field}}</label>
+      {%endfor%}
+     </div>
+    </div>
+    <div class="form-group">
+     <div class="font-weight-bold">Is this being used for business or non-business reasons?</div>
+     <br>
+     <div class ="questions" data-toggle="buttons">
+     {%for field in settings.business%}
+      <label class = "btn
+      {%if campaign.sett_business == field.data%}
+       btn-primary
+      {%else %}
+       btn-outline-primary
+      {%endif%}
+      ">{{field.label}} {{field}}</label>
+     {%endfor%}
+     </div>
+    </div>
+    <div class="form-group">
+     <div class="font-weight-bold">Which of the following is most important for you or your company?</div>
+     <br>
+     <div class ="questions" data-toggle="buttons">
+     {%for field in settings.social%}
+      <label class = "btn
+      {%if campaign.sett_social == field.data%}
+       btn-primary
+      {%else %}
+       btn-outline-primary
+      {%endif%}">{{field.label}} {{field}}</label>
+     {%endfor%}
+     </div>
+    </div>
+    <section class="text-center">
+    {{settings.submit(class="btn btn-outline-info")}}
+    </section>
+   </form>
+ </div>
 </div>
 {% endblock %}

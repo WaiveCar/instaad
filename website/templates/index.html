@@ -1,16 +1,31 @@
 {% extends 'layout.html' %}
 {% block body %}
- <div id = "intro"class="">
-  Promote your Instagram account Instantly on our Magical Screens <br>
+  <div id=bg>
+   <img id=bg-cover src={{url_for('static',filename='media/instaback.jpg')}}>
+    <div id=fg>
+     <h5> Instantly promote yourself IRL through your instagram </h5>
+    </div>
+  </div>
+  <br>
+  </br>
+ <div id = "main"class="">
+  All you need to do is just type in your insta, we'll put up
+your most recent 6 posts.
   <form method="post" action="">
    {{ form.hidden_tag() }}
     <div class="form-group">
      {{form.username(class="form-control form-control-md")}}
     </div>
-    <div class="form-group">
+    <div class="text-center">
       {{form.submit(class="btn btn-outline-info")}}
+      <br><br>
+    ^ Just click that, do it!
     </div>
   </form>
-  <img class = "img-fluid" src="{{url_for('static',filename='media/carjumbo.png')}}" alt=""> </img>
+  <hr size=2>
+  <div id = "questions" class= "">
+   <h5> This exciting experiment from Waive ends August 31. </h5> <br>
+  </div>
+ <br>
  </div>
 {% endblock %}

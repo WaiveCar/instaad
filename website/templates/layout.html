@@ -16,31 +16,7 @@
 
   </head>
   <body>
-    <nav class = "navbar navbar-expand-sm fixed-top bg-white">
-      <div class="container">
-        <div class="navbar-header">
-          <a class="navbar-brand" href="{{url_for('main.home')}}">
-            <img src="{{url_for('static',filename='media/waive-logo_300.png')}}" alt="Waive Logo" height="40vw">
-          </a>
-        </div>
-	<!--
-	<ul class="nav navbar-nav navbar-right">
-          {% if current_user.is_authenticated %}
-            {%if current_user.paid_user%}
-              <li class = "nav-item nav-link"><a href="{{url_for('users.user')}}"><span class="fas fa-user"></span> My Account</a></li>
-            {%else%}
-              <li class = "nav-item nav-link"><a href="{{url_for('campaigns.campaign')}}"><span class="far fa-clipboard"></span> My Campaign</a></li>
-            {%endif%}
-            <li class = "nav-item nav-link"><a href="{{url_for('users.logout')}}"><span class="fas fa-sign-out-alt"></span> Logout</a></li>
-          {% else %}
-            <li class = "nav-item nav-link"><a href="{{url_for('users.register')}}"><span class="fas fa-user"></span> Register</a></li>
-            <li class = "nav-item nav-link"><a href="{{url_for('users.login')}}"><span class="fas fa-archway"></span> Login</a></li>
-          {% endif %}
-	</ul>
-	-->
-      </div>
-    </nav>
-    <main role="main" class="container-fluid">
+    <main role="main" class="container">
       <div>
         {% with messages=get_flashed_messages(with_categories=true) %}
           {% if messages %}
@@ -54,11 +30,13 @@
         {% block body %} {% endblock %}
       </div>
     </main>
+    <!--
     <footer class = "page-footer fixed-bottom mt-2  text-center">
       <div class = "container-fluid bg-dark text-white">
         ©2019, Waive. <a href="mailto:support@waivecar.com">Contact</a>
       </div>
     </footer>
+    -->
 
     <!--3 latest scripts, as of 08/03/19, needed to run Bootstrap 4 -->
     <!-- jQuery library -->

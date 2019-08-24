@@ -20,15 +20,15 @@ def campaign():
     settings = SettingsForm()
     if campaign == "home":
         return redirect(url_for('users.logout'))
-    #None is in quotes and the "!=" is used instead of "is not" because that's currently getting pyhton to correctly behave
-    if (settings.business.data != "None" or settings.social.data != "None"):
     #if settings.validate_on_submit():
-        print('here')
+    #None is in quotes and the "!=" is used instead of "is not" because that's currently getting pyhton to correctly behave
+    if (settings.data.get("control_content") != "None"):
         campaign.sett_control_content = settings.data.get('control_content')
+    if (settings.data.get("business") != "None"):
         campaign.sett_business = settings.data.get('business')
+    if (settings.data.get("social") != "None"):
         campaign.sett_social = settings.data.get('social')
-        db.session.commit()
-        return (redirect(url_for('campaigns.campaign')))
+    db.session.commit()
     return (render_template('campaign.html', settings = settings, campaign = campaign,title='WaiveAd'))
 
 def campaign_retrieve(username):

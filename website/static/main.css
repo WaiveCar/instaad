@@ -66,6 +66,6 @@ img#bg-cover {
 .questions input {
 	display: none;
 }
-.questions button {
-	margin: 1px 3px 1px 3px;
+.questions .btn {
+	margin: 4px 3px 4px 3px;
 }

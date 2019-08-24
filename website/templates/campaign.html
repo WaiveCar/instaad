@@ -1,6 +1,6 @@
 {% extends 'layout.html' %}
 {% block body %}
-<div class="container">
+<div style ="margin-top:2vh" class = "container">
   Your Instagram just played in
   <h3>
    {% if campaign.last_city==None %}
@@ -12,14 +12,13 @@
   <div class="container">
    <iframe id="ig-frame"src="https://9ol.es/ad-new/?user={{campaign.ig_username}}"height="100vh"> </iframe>
   </div>
-  <div id="setting-div">
+   <div id="setting-div">
    <hr size=2>
-   <h5> Settings </h5>
+   <h4> Settings </h4>
    <form action="" method="POST">
     {{ settings.hidden_tag() }}
     <div class="form-group">
-     <div class="font-weight-bold"> Are you promoting the instagram you control the content of?</div>
-     <br>
+     <div class="font-weight-bold"> Ownership</div>
      <div class ="questions" data-toggle="buttons">
       {%for field in settings.control_content%}
       <label class = "btn btn-outline-primary 
@@ -27,12 +26,12 @@
        active
       {%endif%}
       ">{{field.label}} {{field}}</label>
+      <br>
       {%endfor%}
      </div>
     </div>
     <div class="form-group">
-     <div class="font-weight-bold">Is this being used for business or non-business reasons?</div>
-     <br>
+     <div class="font-weight-bold">Type of account</div>
      <div class ="questions" data-toggle="buttons">
      {%for field in settings.business%}
       <label class = "btn btn-outline-primary
@@ -40,18 +39,21 @@
        active
       {%endif%}
       ">{{field.label}} {{field}}</label>
+      <br>
      {%endfor%}
      </div>
     </div>
+    <hr size=2>
     <div class="form-group">
-     <div class="font-weight-bold">Which of the following is most important for you or your company?</div>
-     <br>
+     <h4> Your next step!</h4>
+     <div class="font-weight-bold">What's most important to you?</div>
      <div class ="questions" data-toggle="buttons">
      {%for field in settings.social%}
       <label class = "btn btn-outline-primary
       {%if campaign.sett_social == field.data%}
        active
       {%endif%}">{{field.label}} {{field}}</label>
+      <br>
      {%endfor%}
      </div>
     </div>
@@ -59,6 +61,7 @@
     {{settings.submit(class="btn btn-outline-info")}}
     </section>
    </form>
+   <br>
  </div>
 </div>
 {% endblock %}

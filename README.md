@@ -1,3 +1,14 @@
+## schema
+
+### objects
+* users (have many)
+  * campaigns
+  * cards
+  * services (yelp/insta etc)
+  * charges
+
+* products
+
 # InstaAd for Waive
 
 website is at preview.waivescreen.com for now
